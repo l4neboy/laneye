@@ -9,6 +9,7 @@ app.config.from_pyfile('config.py')
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
+#провеОчка
 
 class Item(db.Model):
     __tablename__ = 'newtable'
