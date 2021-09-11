@@ -1,15 +1,15 @@
 from flask import Flask, render_template, request, redirect
 #from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from models import Item
-from database import db
+from models import db, Item
+
 
 
 app = Flask(__name__)
 app.config.from_pyfile('config.py')
 #db = SQLAlchemy(app)
 migrate = Migrate(app, db)
-
+db.init_app(app)
 #провеОчкаgit
 #121212
 
