@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from models import Item
 
 app = Flask(__name__)
 app.config.from_pyfile('config.py')
