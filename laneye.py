@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect
 #from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from models import db, Item
+from auth.auth import auth #import auth
 
 
 
@@ -9,9 +10,10 @@ app = Flask(__name__)
 app.config.from_pyfile('config.py')
 #db = SQLAlchemy(app)
 migrate = Migrate(app, db)
-db.init_app(app)
-#провеОчкаgit
-#121212
+db.init_app(app) #initialising db here
+
+app.register_blueprint(auth) # blueprint for auth routes
+
 
 @app.route("/")
 def index():
