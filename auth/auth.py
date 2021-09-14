@@ -9,10 +9,11 @@ auth = Blueprint('auth', __name__, template_folder='templates')
 def login():
     return render_template('auth/login.html')
 
-@auth.route('/signup', methods=['POST'])
+@auth.route('/signup')
 def signup():
     return render_template('auth/signup.html')
 
+@auth.route('/signup', methods=['POST'])
 def signup_post():
     email = request.form.get('email')
     name = request.form.get('name')
