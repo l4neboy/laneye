@@ -1,8 +1,9 @@
 from flask import Flask, render_template, request, redirect
 #from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from models import db, Item
+from models import db, Item, User
 from auth.auth import auth #import auth
+from flask_login import LoginManager
 
 
 
@@ -11,8 +12,16 @@ app.config.from_pyfile('config.py')
 #db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 db.init_app(app) #initialising db here
-
 app.register_blueprint(auth) # blueprint for auth routes
+
+login_manager = LoginManager()
+login_manager.login_view = 'auth.login'
+login_manager.init_app(app)
+
+@login_manager.user_loader
+def load_user(user_id):
+    # since the user_id is just the primary key of our user table, use it in the query for the user
+    return User.query.get(int(user_id))
 
 
 @app.route("/")

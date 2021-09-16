@@ -1,4 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
+from flask_login import UserMixin
 
 db = SQLAlchemy()
 
@@ -18,7 +19,7 @@ class Item(db.Model):
     def __repr__(self):
         return self.title
 
-class User(db.Model):
+class User(UserMixin, db.Model):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True) # primary keys are required by SQLAlchemy
