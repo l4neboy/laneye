@@ -62,3 +62,8 @@ def logout():
 @login_required
 def profile():
     return render_template('auth/profile.html', name=current_user.name)
+
+@auth.route('/loginindex')
+def loginindex():
+    return render_template('auth/index.html')
+    

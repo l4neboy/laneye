@@ -33,7 +33,6 @@ def index():
 def about():
     return render_template('about.html')
 
-
 @app.route('/create', methods=['POST', 'GET'])
 def create():
     if request.method == 'POST':
