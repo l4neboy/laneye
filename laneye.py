@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, redirect
 from flask_migrate import Migrate
 from models import db, Item, User
 from auth.auth import auth #import auth
+from main.main import main #import main
 from flask_login import LoginManager
 
 
@@ -13,6 +14,7 @@ app.config.from_pyfile('config.py')
 migrate = Migrate(app, db)
 db.init_app(app) #initialising db here
 app.register_blueprint(auth) # blueprint for auth routes
+app.register_blueprint(main) # blueprint for new main routes
 
 login_manager = LoginManager()
 login_manager.login_view = 'auth.login'
