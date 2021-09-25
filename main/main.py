@@ -4,6 +4,11 @@ main = Blueprint('main', __name__, template_folder='templates') #check
 
 @main.route('/test')
 def test():
-    return render_template('main/base.html')
+    return 'Feel Good Inc.'
+
+
+@main.route('/aboutme')
+def aboutme():
+    return render_template('main/aboutme.html')
 
 
