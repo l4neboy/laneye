@@ -25,14 +25,15 @@ def load_user(user_id):
     # since the user_id is just the primary key of our user table, use it in the query for the user
     return User.query.get(int(user_id))
 
-@app.route("/misterything")
+'''@app.route("/misterything")
 def index():
     items = Item.query.order_by(Item.price).all()
-    return render_template('index.html', data=items)
+    return render_template('index.html', data=items)'''
 
 @app.route("/")
 def index():
-    return render_template('main/index.html')
+    items = Item.query.order_by(Item.price).all()
+    return render_template('index.html', data=items)
 
 @app.route('/about')
 def about():
