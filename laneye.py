@@ -26,10 +26,14 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 
-@app.route("/")
+'''@app.route("/")
 def index():
     items = Item.query.order_by(Item.price).all()
-    return render_template('index.html', data=items)
+    return render_template('index.html', data=items)'''
+
+@app.route("/")
+def index():
+    return render_template('main/index.html')
 
 @app.route('/about')
 def about():
