@@ -4,6 +4,7 @@ from flask_migrate import Migrate
 from models import db, Item, User
 from auth.auth import auth #import auth
 from main.main import main #import main
+from api.api import api #import main
 from flask_login import LoginManager
 
 
@@ -15,6 +16,7 @@ migrate = Migrate(app, db)
 db.init_app(app) #initialising db here
 app.register_blueprint(auth) # blueprint for auth routes
 app.register_blueprint(main) # blueprint for new main routes
+app.register_blueprint(api) # blueprint for api
 
 login_manager = LoginManager()
 login_manager.login_view = 'auth.login'
