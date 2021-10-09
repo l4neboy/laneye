@@ -4,7 +4,7 @@ from flask_migrate import Migrate
 from models import db, Item, User
 from auth.auth import auth #import auth
 from main.main import main #import main
-from api.api import api #import main
+from api.api import api #import api
 from flask_login import LoginManager
 
 
