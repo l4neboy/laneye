@@ -1,14 +1,13 @@
 from flask import Blueprint, Flask, render_template, redirect, url_for, jsonify, abort
 from flask_restful import Resource, Api
 
-api = Blueprint('api', __name__) #check
-
-apix = Api(api)
+api_bp = Blueprint('api', __name__) #check
+api = Api(api_bp)
 
 class HelloWorld(Resource):
     def get(self):
         return {'hello': 'world'}
 
-apix.add_resource(HelloWorld, '/api')
+api.add_resource(HelloWorld, '/api')
 
 
